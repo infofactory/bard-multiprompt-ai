@@ -2,12 +2,13 @@
 
 namespace Infofactory\BardMultipromptAi\Controllers;
 
+use Parsedown;
 use EchoLabs\Prism\Prism;
-use EchoLabs\Prism\ValueObjects\Messages\UserMessage;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Parsedown;
 use Statamic\Http\Controllers\Controller;
+use EchoLabs\Prism\Exceptions\PrismException;
+use EchoLabs\Prism\ValueObjects\Messages\UserMessage;
 
 class ActionController extends Controller
 {
@@ -48,12 +49,20 @@ class ActionController extends Controller
             ->using($prompt['provider'], $prompt['model'])
             ->withMessages($messages)
             ->usingTemperature($prompt['temperature'] / 100);
-
+        
         if ($prompt['max_tokens'] !== 0) {
             $response->withMaxTokens($prompt['max_tokens']);
         }
-
-        $response = $response->generate();
+        
+        try {
+            $response = $response->generate();
+        } catch (PrismException $e) {
+            return response()->json([
+                'data' => [
+                    'error' => $e->getMessage()
+                ]
+            ]);
+        }
 
         // Make sure what we give back is an HTML string
         $parser = new Parsedown();

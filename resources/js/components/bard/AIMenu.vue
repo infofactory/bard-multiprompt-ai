@@ -85,6 +85,10 @@ export default {
         const response = await request.json();
         const data = response.data;
 
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
         if (!data.html) {
           throw new Error('AI response not generated');
         }
