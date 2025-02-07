@@ -1,0 +1,49 @@
+{
+    "name": "infofactory/bard-multiprompt-ai",
+    "description": "A Statamic addon that adds AI functionalities to the Bard editor",
+    "type": "statamic-addon",
+    "license": "proprietary",
+    "keywords": [
+        "statamic",
+        "ai",
+        "bard",
+        "tools"
+    ],
+    "authors": [
+        {
+            "name": "Alessio Tognan",
+            "email": "tognan@infofactory.it",
+            "role": "Developer",
+            "homepage": "https://infofactory.it"
+        }
+    ],
+    "homepage": "https://github.com/infofactory/bard-multiprompt-ai",
+    "require": {
+        "statamic/cms": "^5.0",
+        "echolabsdev/prism": "^0.21.1",
+        "stillat/proteus": "^4.0",
+        "erusev/parsedown": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Infofactory\\BardMultipromptAi\\": "src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        },
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Bard Multiprompt AI",
+            "description": "A Statamic addon that adds AI functionalities to the Bard editor"
+        },
+        "laravel": {
+            "providers": [
+                "Infofactory\\BardMultipromptAi\\ServiceProvider"
+            ]
+        }
+    }
+}

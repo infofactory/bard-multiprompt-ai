@@ -1,0 +1,19 @@
+title: 'bard-multiprompt-ai::cp.title'
+tabs:
+  prompts:
+    sections:
+      -
+        fields:
+          -
+            handle: prompts
+            field:
+              collapse: true
+              type: replicator
+              localizable: false
+              instructions: 'bard-multiprompt-ai::cp.list.instructions'
+              sortable: false
+              button_label: 'bard-multiprompt-ai::cp.list.new'
+              display: 'bard-multiprompt-ai::cp.list.title'
+              sets:
+                prompts:
+                  sets:

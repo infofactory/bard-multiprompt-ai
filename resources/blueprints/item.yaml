@@ -1,0 +1,99 @@
+prompt:
+  display: 'bard-multiprompt-ai::cp.item.title'
+  icon: edit-pen
+  fields:
+    -
+      handle: name
+      field:
+        type: text
+        display: bard-multiprompt-ai::cp.item.name.display
+        localizable: false
+        instructions: bard-multiprompt-ai::cp.item.name.instructions
+        placeholder: bard-multiprompt-ai::cp.item.name.placeholder
+        character_limit: 100
+    -
+      handle: provider
+      field:
+        options:
+          -
+            key: key
+            value: label
+        type: select
+        display: bard-multiprompt-ai::cp.item.provider.display
+        localizable: false
+        width: 50
+        instructions: bard-multiprompt-ai::cp.item.provider.instructions
+        placeholder: bard-multiprompt-ai::cp.item.provider.placeholder
+        replicator_preview: false
+    -
+      handle: model
+      field:
+        type: text
+        display: bard-multiprompt-ai::cp.item.model.display
+        localizable: false
+        width: 50
+        instructions: bard-multiprompt-ai::cp.item.model.instructions
+        placeholder: bard-multiprompt-ai::cp.item.model.placeholder
+        replicator_preview: false
+    -
+      handle: instructions
+      field:
+        type: textarea
+        display: bard-multiprompt-ai::cp.item.instructions.display
+        localizable: false
+        instructions: bard-multiprompt-ai::cp.item.instructions.instructions
+        placeholder: bard-multiprompt-ai::cp.item.instructions.placeholder
+        replicator_preview: false
+    -
+      handle: pass_context
+      field:
+        type: toggle
+        display: bard-multiprompt-ai::cp.item.pass_context.display
+        instructions: bard-multiprompt-ai::cp.item.pass_context.instructions
+        localizable: false
+        instructions_position: above
+        width: 50
+        default: true
+        replicator_preview: false
+    -
+      handle: generation_mode
+      field:
+        options:
+          -
+            key: replace
+            value: bard-multiprompt-ai::cp.item.generation_mode.options.replace
+          -
+            key: continue
+            value: bard-multiprompt-ai::cp.item.generation_mode.options.continue
+        type: select
+        display: bard-multiprompt-ai::cp.item.generation_mode.display
+        localizable: false
+        width: 50
+        sortable: false
+        instructions_position: above
+        default: replace
+        replicator_preview: false
+    -
+      handle: max_tokens
+      field:
+        default: '4096'
+        type: integer
+        display: bard-multiprompt-ai::cp.item.max_tokens.display
+        localizable: false
+        width: 50
+        instructions: bard-multiprompt-ai::cp.item.max_tokens.instructions
+        instructions_position: above
+        replicator_preview: false
+    -
+      handle: temperature
+      field:
+        step: 5
+        default: 70
+        append: '%'
+        type: range
+        display: bard-multiprompt-ai::cp.item.temperature.display
+        localizable: false
+        width: 50
+        instructions: bard-multiprompt-ai::cp.item.temperature.instructions
+        instructions_position: above
+        replicator_preview: false
