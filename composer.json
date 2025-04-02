@@ -20,9 +20,9 @@
     "homepage": "https://github.com/infofactory/bard-multiprompt-ai",
     "require": {
         "statamic/cms": "^5.0",
-        "echolabsdev/prism": "^0.21.1",
         "stillat/proteus": "^4.0",
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "prism-php/prism": "^0.56.0"
     },
     "autoload": {
         "psr-4": {

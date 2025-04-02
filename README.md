@@ -21,7 +21,7 @@ composer require infofactory/bard-multiprompt-ai
 
 ## How to Use
 
-This addon under the hood uses [EchoLabs's Prism](https://github.com/echolabsdev/prism).
+This addon under the hood uses [PrismPHP](https://github.com/prism-php/prism).
 
 Providers are configured following Laravel's environment configuration best practices:
 
@@ -32,9 +32,9 @@ Providers are configured following Laravel's environment configuration best prac
   - URLs: `PROVIDER_URL`
   - Other settings: `PROVIDER_SETTING_NAME`
 
-You can check which providers are supported and how to configure them following [Prism's documentation](https://prism.echolabs.dev/getting-started/configuration.html).
+You can check which providers are supported and how to configure them following [Prism's documentation](https://prismphp.com/getting-started/configuration.html).
 
-If a Provider you're looking for is not yet supported you can always [extend Prism with a Custom Provider](https://prism.echolabs.dev/advanced/custom-providers.html).
+If a Provider you're looking for is not yet supported you can always [extend Prism with a Custom Provider](https://prismphp.com/advanced/custom-providers.html).
 
 ## Author
 
