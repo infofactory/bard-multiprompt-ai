@@ -10,6 +10,7 @@ This addon lets you:
 - Choose different models for each prompt
 - Adjust and tweak settings to get the best result
 - Replace or append the generated text directly in the editor
+- Add variables to your prompt
 
 ## How to Install
 
@@ -27,7 +28,7 @@ Providers are configured following Laravel's environment configuration best prac
 
 1. Each provider's configuration pulls values from environment variables
 2. Default values are provided as fallbacks
-3. Environment variables follow a predictable naming pattern: 
+3. Environment variables follow a predictable naming pattern:
   - API keys: `PROVIDER_API_KEY`
   - URLs: `PROVIDER_URL`
   - Other settings: `PROVIDER_SETTING_NAME`
@@ -35,6 +36,10 @@ Providers are configured following Laravel's environment configuration best prac
 You can check which providers are supported and how to configure them following [Prism's documentation](https://prismphp.com/getting-started/configuration.html).
 
 If a Provider you're looking for is not yet supported you can always [extend Prism with a Custom Provider](https://prismphp.com/advanced/custom-providers.html).
+
+### Variables
+
+Variables are placeholders that will be replaced with actual values from the editor content. You can add variables to your prompt by using the `:variable` syntax.
 
 ## Author
 

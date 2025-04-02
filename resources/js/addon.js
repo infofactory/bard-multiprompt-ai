@@ -4,9 +4,21 @@ const { Extension } = Statamic.$bard.tiptap.core;
 
 Statamic.$bard.addExtension(() => Extension.create({
   name: 'bard-multiprompt-ai',
+  addCommands() {
+    return {
+      showAIPanel: (prompt) => ({ editor }) => {
+        // Show the AIPanel component with event bus
+        Statamic.$events.$emit('bard-multiprompt-ai-show-panel', prompt);
+        return true;
+      },
+    };
+  },
+
   addProseMirrorPlugins() {
     return [
-      createBardMultipromptAiPlugin(),
+      createBardMultipromptAiPlugin({
+        editor: this.editor
+      })
     ]
   }
 }));

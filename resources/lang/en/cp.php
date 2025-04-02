@@ -8,6 +8,9 @@ return [
         'instructions' => 'Here you can add your own prompts to use in the Bard editor',
         'new' => 'New Prompt'
     ],
+    'generate' => 'Generate',
+    'generating' => 'Generating',
+    'cancel' => 'Cancel',
     'item' => [
         'title' => 'Prompt',
         'name' => [

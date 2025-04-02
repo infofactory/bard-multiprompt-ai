@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Statamic\Http\Controllers\Controller;
 use Prism\Prism\Exceptions\PrismException;
 use Prism\Prism\ValueObjects\Messages\UserMessage;
+use Infofactory\BardMultipromptAi\Services\TemplateService;
 
 class ActionController extends Controller
 {
@@ -19,6 +20,7 @@ class ActionController extends Controller
             return [
                 'id' => $prompt['id'],
                 'name' => $prompt['name'],
+                'variables' => TemplateService::extractVariables($prompt['instructions'])
             ];
         })
         ->toArray();
@@ -33,12 +35,13 @@ class ActionController extends Controller
         $validated = $request->validate([
             'prompt_id' => ['required', Rule::in(collect(config('bard-multiprompt-ai.prompts'))->pluck('id')->toArray())],
             'html' => ['required', 'string'],
+            'variables' => ['sometimes', 'array'],
         ]);
 
         $prompt = collect(config('bard-multiprompt-ai.prompts'))->where('id', $validated['prompt_id'])->first();
 
         $messages = [
-            new UserMessage($prompt['instructions'])
+            new UserMessage(TemplateService::renderTemplate($prompt['instructions'], $validated['variables']))
         ];
 
         if ($prompt['pass_context']) {
