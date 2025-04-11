@@ -15,10 +15,6 @@ class ServiceProvider extends AddonServiceProvider
         'publicDirectory' => 'resources/dist',
     ];
 
-    protected $routes = [
-        'cp' => __DIR__.'/routes/cp.php',
-    ];
-
     public function bootAddon()
     {
         // Register views
@@ -48,7 +44,8 @@ class ServiceProvider extends AddonServiceProvider
             ], 'bard-multiprompt-ai');
         }
 
-        // Action routes
-        $this->registerActionRoutes(__DIR__.'/routes/actions.php');
+        // Register routes
+        $this->registerCpRoutes(__DIR__.'/../routes/cp.php');
+        $this->registerActionRoutes(__DIR__.'/../routes/actions.php');
     }
 }
