@@ -10,12 +10,8 @@ use Stillat\Proteus\Support\Facades\ConfigWriter;
 
 class ConfigController extends Controller
 {
-
-    private function getBlueprint()
+    private function getProvidersOptions()
     {
-        $config_yaml = YAML::file(__DIR__.'/../../resources/blueprints/config.yaml')->parse();
-        $item_yaml = YAML::file(__DIR__.'/../../resources/blueprints/item.yaml')->parse();
-
         $providers_labels = collect([
             'anthropic' => 'Anthropic',
             'groq' => 'Groq',
@@ -44,10 +40,16 @@ class ConfigController extends Controller
             ];
         }
 
-        $item_yaml['prompt']['fields'][1]['field']['options'] = $providers_options;
+        return $providers_options;
+    }
 
-        $config_yaml['tabs']['prompts']['sections'][0]['fields'][0]
-            ['field']['sets']['prompts']['sets'] = $item_yaml;
+    private function getBlueprint()
+    {
+        $config_yaml = YAML::file(__DIR__ . '/../../resources/blueprints/config.yaml')->parse();
+        $item_yaml = YAML::file(__DIR__ . '/../../resources/blueprints/item.yaml')->parse();
+
+        $item_yaml['prompt']['fields'][1]['field']['options'] = $this->getProvidersOptions();
+        $config_yaml['tabs']['prompts']['sections'][0]['fields'][0]['field']['sets']['prompts']['sets'] = $item_yaml;
 
         return Blueprint::make()->setContents($config_yaml);
     }
@@ -59,7 +61,7 @@ class ConfigController extends Controller
             ->addValues(config('bard-multiprompt-ai'))
             ->preProcess();
 
-        return view('bard-multiprompt-ai::edit',[
+        return view('bard-multiprompt-ai::edit', [
             'blueprint' => $blueprint->toPublishArray(),
             'meta' => $fields->meta(),
             'values' => $fields->values(),
