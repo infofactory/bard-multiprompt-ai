@@ -45,8 +45,8 @@ class ConfigController extends Controller
 
     private function getBlueprint()
     {
-        $config_yaml = YAML::file(__DIR__ . '/../../resources/blueprints/config.yaml')->parse();
-        $item_yaml = YAML::file(__DIR__ . '/../../resources/blueprints/item.yaml')->parse();
+        $config_yaml = YAML::file(__DIR__ . '/../../resources/blueprint-templates/config.yaml')->parse();
+        $item_yaml = YAML::file(__DIR__ . '/../../resources/blueprint-templates/item.yaml')->parse();
 
         $item_yaml['prompt']['fields'][1]['field']['options'] = $this->getProvidersOptions();
         $config_yaml['tabs']['prompts']['sections'][0]['fields'][0]['field']['sets']['prompts']['sets'] = $item_yaml;
