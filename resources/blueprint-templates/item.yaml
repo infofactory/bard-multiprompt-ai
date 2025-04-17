@@ -11,6 +11,7 @@ prompt:
         instructions: bard-multiprompt-ai::cp.item.name.instructions
         placeholder: bard-multiprompt-ai::cp.item.name.placeholder
         character_limit: 100
+        required: true
     -
       handle: provider
       field:
@@ -25,6 +26,7 @@ prompt:
         instructions: bard-multiprompt-ai::cp.item.provider.instructions
         placeholder: bard-multiprompt-ai::cp.item.provider.placeholder
         replicator_preview: false
+        required: true
     -
       handle: model
       field:
@@ -35,6 +37,7 @@ prompt:
         instructions: bard-multiprompt-ai::cp.item.model.instructions
         placeholder: bard-multiprompt-ai::cp.item.model.placeholder
         replicator_preview: false
+        required: true
     -
       handle: instructions
       field:
@@ -44,6 +47,7 @@ prompt:
         instructions: bard-multiprompt-ai::cp.item.instructions.instructions
         placeholder: bard-multiprompt-ai::cp.item.instructions.placeholder
         replicator_preview: false
+        required: true
     -
       handle: pass_context
       field:
