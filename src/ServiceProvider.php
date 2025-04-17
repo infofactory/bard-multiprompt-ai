@@ -2,6 +2,7 @@
 
 namespace Infofactory\BardMultipromptAi;
 
+use Statamic\Statamic;
 use Statamic\Facades\CP\Nav;
 use Statamic\Facades\Permission;
 use Statamic\Providers\AddonServiceProvider;
@@ -29,5 +30,12 @@ class ServiceProvider extends AddonServiceProvider
                 ->route('bard-multiprompt-ai.config')
                 ->can('manage bard-multiprompt-ai config');
         });
+
+        // Publish the configs as well
+        Statamic::afterInstalled(function ($command) {
+          $command->call('vendor:publish', [
+              '--tag' => $this->getAddon()->slug().'-config',
+          ]);
+      });
     }
 }
