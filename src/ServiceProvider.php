@@ -17,8 +17,9 @@ class ServiceProvider extends AddonServiceProvider
 
     public function bootAddon()
     {
-        // Register views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'bard-multiprompt-ai');
+        // Register permissions
+        Permission::register('manage bard-multiprompt-ai config')
+            ->label('Manage Bard AI Configs');
 
         // Register navigation
         Nav::extend(function ($nav) {
@@ -28,24 +29,5 @@ class ServiceProvider extends AddonServiceProvider
                 ->route('bard-multiprompt-ai.config')
                 ->can('manage bard-multiprompt-ai config');
         });
-
-        // Register permissions
-        Permission::register('manage bard-multiprompt-ai config')
-            ->label('Manage Bard AI Configs');
-
-        // Register configs
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/bard-multiprompt-ai.php', 'bard-multiprompt-ai'
-        );
-
-        if (!file_exists(config_path('bard-multiprompt-ai.php'))) {
-            $this->publishes([
-                __DIR__.'/../config/bard-multiprompt-ai.php' => config_path('bard-multiprompt-ai.php'),
-            ], 'bard-multiprompt-ai');
-        }
-
-        // Register routes
-        $this->registerCpRoutes(__DIR__.'/../routes/cp.php');
-        $this->registerActionRoutes(__DIR__.'/../routes/actions.php');
     }
 }
