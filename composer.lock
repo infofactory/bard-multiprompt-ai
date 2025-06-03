@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d69575d75f8eaa26ec8c546d944515e",
+    "content-hash": "64164aa82e06198f18ad038cbac71ab4",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -3258,16 +3258,16 @@
         },
         {
             "name": "prism-php/prism",
-            "version": "v0.61.0",
+            "version": "v0.68.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/prism-php/prism.git",
-                "reference": "7ab7875492fe4fa1f8ef121732e3e9f31116cac9"
+                "reference": "b32a1be1a0ea5b7bc439f6b9835d8d75ed522ce2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prism-php/prism/zipball/7ab7875492fe4fa1f8ef121732e3e9f31116cac9",
-                "reference": "7ab7875492fe4fa1f8ef121732e3e9f31116cac9",
+                "url": "https://api.github.com/repos/prism-php/prism/zipball/b32a1be1a0ea5b7bc439f6b9835d8d75ed522ce2",
+                "reference": "b32a1be1a0ea5b7bc439f6b9835d8d75ed522ce2",
                 "shasum": ""
             },
             "require": {
@@ -3302,6 +3302,9 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
                 "psr-4": {
                     "Prism\\Prism\\": "src/"
                 }
@@ -3319,7 +3322,7 @@
             "description": "A powerful Laravel package for integrating Large Language Models (LLMs) into your applications.",
             "support": {
                 "issues": "https://github.com/prism-php/prism/issues",
-                "source": "https://github.com/prism-php/prism/tree/v0.61.0"
+                "source": "https://github.com/prism-php/prism/tree/v0.68.1"
             },
             "funding": [
                 {
@@ -3327,7 +3330,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-12T19:34:32+00:00"
+            "time": "2025-05-27T22:15:27+00:00"
         },
         {
             "name": "psr/clock",
