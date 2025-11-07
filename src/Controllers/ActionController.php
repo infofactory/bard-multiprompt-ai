@@ -3,8 +3,8 @@
 namespace Infofactory\BardMultipromptAi\Controllers;
 
 use Parsedown;
-use Prism\Prism\Prism;
 use Illuminate\Http\Request;
+use Prism\Prism\Facades\Prism;
 use Illuminate\Validation\Rule;
 use Statamic\Http\Controllers\Controller;
 use Prism\Prism\Exceptions\PrismException;
